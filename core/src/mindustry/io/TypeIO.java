@@ -147,7 +147,7 @@ public class TypeIO{
         }else if(object instanceof UnitCommand command){
             write.b(23);
             write.s(command.id);
-        }else if(object instanceof Bullet b){ //write bullets as null
+        }else if(object instanceof Bullet b || object instanceof Seq<?> s){ //write bullets as null
             write.b((byte)0);
         }else{
             throw new IllegalArgumentException("Unknown object type: " + object.getClass());
@@ -188,8 +188,8 @@ public class TypeIO{
             case 4 -> {
                 byte exists = read.b();
                 if(exists != 0){
-                    //in a safe context, strings can only be 1000 chars
-                    yield read.str(safe ? 1000 : 0);
+                    //in a safe context, strings can only be 1200 chars
+                    yield read.str(safe ? 1200 : 0);
                 }else{
                     yield null;
                 }

@@ -42,7 +42,7 @@ import static arc.graphics.g2d.Draw.*;
 import static mindustry.Vars.*;
 
 public class UnitType extends UnlockableContent implements Senseable{
-    public static final float shadowTX = -12, shadowTY = -13;
+    public static final float shadowTX = 0, shadowTY = 0;
     private static final Vec2 legOffset = new Vec2();
     private static final Seq<UnitStance> tmpStances = new Seq<>();
 

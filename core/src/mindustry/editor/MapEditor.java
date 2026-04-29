@@ -18,7 +18,7 @@ import mindustry.world.blocks.environment.*;
 import static mindustry.Vars.*;
 
 public class MapEditor{
-    public static final float[] brushSizes = {1, 1.5f, 2, 3, 4, 5, 9, 15, 20};
+    public static final float[] brushSizes = {1, 1.5f, 2, 3, 4, 5, 9, 15, 20, 40, 50, 100, 200};
 
     public StringMap tags = new StringMap();
     public EditorRenderer renderer = new EditorRenderer();

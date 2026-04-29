@@ -332,9 +332,9 @@ public class Control implements ApplicationListener, Loadable{
         Core.input.setCatch(KeyCode.back, true);
 
         Core.settings.defaults(
-        "ip", "localhost",
-        "color-0", playerColors[8].rgba(),
-        "name", "",
+        "ip", "towuk.ru",
+        "color-0", playerColors[2].rgba(),
+        "name", "TOWUK_player",
         "lastBuild", 0
         );
 

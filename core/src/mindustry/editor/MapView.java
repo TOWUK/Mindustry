@@ -202,7 +202,7 @@ public class MapView extends Element implements GestureListener{
     }
 
     private void clampZoom(){
-        zoom = Mathf.clamp(zoom, 0.2f, 20f);
+        zoom = Mathf.clamp(zoom, 0.2f, 100f);
     }
 
     public Point2 project(float x, float y){

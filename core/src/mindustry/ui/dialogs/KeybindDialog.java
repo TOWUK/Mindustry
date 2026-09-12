@@ -10,6 +10,7 @@ import arc.scene.ui.layout.*;
 import arc.util.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
+import mindustry.input.*;
 import mindustry.ui.*;
 
 import java.util.*;
@@ -118,7 +119,7 @@ public class KeybindDialog extends Dialog{
                     openDialog(keybind);
                 }).size(bw, bh);
             }
-            table.button("@settings.resetKey", tstyle, keybind::resetToDefault).disabled(t -> keybind.isDefault()).size(bw, bh).pad(2f).padLeft(4f);
+            if(keybind != Binding.menu) table.button("@settings.resetKey", tstyle, keybind::resetToDefault).disabled(t -> keybind.isDefault()).size(bw, bh).pad(2f).padLeft(4f);
             table.row();
         }
 
@@ -163,12 +164,12 @@ public class KeybindDialog extends Dialog{
             title.setAlignment(Align.center);
             cont.add(rebindAxis ? bundle.get("keybind.press.axis") : bundle.get("keybind.press")).pad(40f);
 
+            buttons.button("@back", Icon.left, this::hide).size(bw, bh).get().addListener(blocker);
             buttons.button("@settings.unbindKey", Icon.cancel, () -> {
                 keyBind.unset();
+                keyBind.save();
                 hide();
             }).size(bw, bh).get().addListener(blocker);
-
-            buttons.button("@back", Icon.left, this::hide).size(bw, bh).get().addListener(blocker);
         }};
 
         rebindKey = keyBind;
